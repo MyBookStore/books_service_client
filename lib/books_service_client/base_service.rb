@@ -1,5 +1,5 @@
-require 'rest-client'
-
+require 'rest_client'
+#
 module BooksServiceClient
   module BaseService
 

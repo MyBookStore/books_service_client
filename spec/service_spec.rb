@@ -3,12 +3,13 @@ require 'json'
 
 class ServiceSpec
     describe BooksServiceClient do
-      let(:service) { Service.new }
+      let(:service) { BooksServiceClient::Service.new }
       describe '#get_all_books' do
-          let(:output) {service.get_all_books}
+          let(:output) {service.all_books}
 
-      it 'get the list of books' do
-        expect(JSON.parse (service.all)).to eq ["The Little Prince","The Little Prince","Frindle"]
+      it 'gets the list of books' do
+        BooksServiceClient::Configuration.site = "localhost:3000"
+        expect(JSON.parse (output)).to eq({})
       end
       end
     end
