@@ -6,7 +6,11 @@ module BooksServiceClient
     include ServiceUrls
 
     def all_books
-      execute(all_books_url)
+      books_data = JSON.parse(execute(all_books_url))
+      formatted_books_data =  books_data.inject([]) do |books,book_data|
+        books << Book.new(book_data)
+      end
+      p formatted_books_data
     end
   end
 end
