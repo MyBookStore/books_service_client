@@ -1,4 +1,4 @@
-/coverage/
+ls/coverage/
 /tmp/
 *.gem
 *.rbc
@@ -8,7 +8,6 @@
 /spec/examples.txt
 /test/tmp/
 /test/version_tmp/
-.idea
 
 ## Specific to RubyMotion:
 .dat*
@@ -20,6 +19,7 @@ build/
 /_yardoc/
 /doc/
 /rdoc/
+.idea/workspace.xml
 
 ## Environment normalization:
 /.bundle/
