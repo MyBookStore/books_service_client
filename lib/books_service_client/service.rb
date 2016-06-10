@@ -5,12 +5,16 @@ module BooksServiceClient
     include BaseService
     include ServiceUrls
 
+    def initialize user
+      @user = user
+    end
+
     def all_books
       books_data = JSON.parse(execute(all_books_url))
       formatted_books_data =  books_data.inject([]) do |books,book_data|
         books << Book.new(book_data)
       end
-      p formatted_books_data
+      formatted_books_data
     end
   end
 end
