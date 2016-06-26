@@ -10,4 +10,11 @@ describe BooksServiceClient::ServiceUrls do
   it 'should return books url' do
     expect(all_books_url).to eql("#{root_url}/books")
   end
+
+  # it 'should return get book url' do
+  #   expect(get_url).to eql("#{root_url}/")
+  # end
+
+
+
 end

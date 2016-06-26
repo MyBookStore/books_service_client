@@ -11,9 +11,18 @@ module BooksServiceClient
             url: url,
             user: user_id,
             payload: params,
-            headers: {"Content-Type" => "application/json"}).execute
+            headers: {:content_type => :json,
+                      :accept => 'application/json'}).execute
       end
-      response
+      code = response.code
+      body = response.body
+
+      response_with(body, code)
+    end
+
+    def response_with(body, code)
+      payload = body.empty? ? {} : ActiveSupport::JSON.decode(body)
+      BookServiceClient::Response.new(code, payload)
     end
 
   end

@@ -4,6 +4,11 @@ module BooksServiceClient
       "#{root_url}/books"
     end
 
+    def get_url
+      "#{root_url}/get"
+
+    end
+
     private
     def root_url
       @root_url ||= BooksServiceClient::Configuration.site

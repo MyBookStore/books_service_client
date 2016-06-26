@@ -10,11 +10,17 @@ module BooksServiceClient
     end
 
     def all_books
-      books_data = JSON.parse(execute(all_books_url))
-      formatted_books_data =  books_data.inject([]) do |books,book_data|
+      Resources::Order.new
+      response = execute(:get, all_books_url, {}, @user)
+      formatted_books_data = response.body['user'].inject([]) do |books, book_data|
         books << Book.new(book_data)
       end
       formatted_books_data
+    end
+
+    def get params
+      response = execute(:get, get_url, params, @user)
+      Book.new response.body['user']
     end
   end
 end
